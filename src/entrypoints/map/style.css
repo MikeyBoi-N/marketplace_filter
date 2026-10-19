@@ -1,0 +1,22 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+.mpf-vertex {
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 3px solid #1877f2;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6);
+  cursor: grab;
+}
+
+.mpf-vertex.first {
+  background: #1877f2;
+  border-color: #fff;
+}
