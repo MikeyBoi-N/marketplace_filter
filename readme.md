@@ -14,14 +14,12 @@ To update, replace the folder's contents with a newer release and click the relo
 
 ## Install (Firefox 128 or newer)
 
-The Chrome zip won't load in Firefox, so use the Firefox build.
-
-1. Download `marketplace-filter-<version>-firefox.zip` from the [Releases](https://github.com/MikeyBoi-N/marketplace_filter/releases) page. Don't unzip it.
-2. Open `about:debugging#/runtime/this-firefox`.
-3. Click **Load Temporary Add-on...** and select the zip.
+1. Download `marketplace-filter-<version>-firefox.xpi` from the [Releases](https://github.com/MikeyBoi-N/marketplace_filter/releases) page.
+2. Drag the file into a Firefox window (or open `about:addons`, click the gear icon, and choose **Install Add-on From File...**).
+3. Click **Add** when Firefox asks.
 4. Open Facebook Marketplace.
 
-Firefox removes temporary add-ons when it quits, so you'll need to repeat step 3 after each restart. A permanent install needs a build signed by Mozilla.
+To update, install the newer `.xpi` the same way. It replaces the old version and keeps your settings.
 
 Firefox 128 needs macOS 10.15 (Catalina) or newer. Older Macs stuck on Firefox ESR 115 can't run the extension.
 
@@ -98,6 +96,8 @@ Stack: WXT (Chrome MV3, Firefox later), React, MUI (dark theme, Facebook blue), 
     npm run build      # production build in .output/chrome-mv3 (load unpacked via chrome://extensions)
     npm test           # unit tests for parsing, keyword syntax, filter engine, geo and URL building
     npm run compile    # typecheck
+
+Releasing for Firefox: bump `version` in package.json (Mozilla won't sign the same version twice), set `WEB_EXT_API_KEY` and `WEB_EXT_API_SECRET` to the AMO JWT issuer and secret, then run `npm run sign:firefox`. The signed .xpi lands in .output/signed; rename it to `marketplace-filter-<version>-firefox.xpi` and attach it to the GitHub release.
 
 How it works
 - src/entrypoints/interceptor.content.ts runs in the page's JS world and forwards Facebook's GraphQL responses (read only).
