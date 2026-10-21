@@ -12,6 +12,19 @@ Better filters for Facebook Marketplace: keyword exclusions, real price limits, 
 
 To update, replace the folder's contents with a newer release and click the reload icon on the extension's card.
 
+## Install (Firefox 128 or newer)
+
+The Chrome zip won't load in Firefox, so use the Firefox build.
+
+1. Download `marketplace-filter-<version>-firefox.zip` from the [Releases](https://github.com/MikeyBoi-N/marketplace_filter/releases) page. Don't unzip it.
+2. Open `about:debugging#/runtime/this-firefox`.
+3. Click **Load Temporary Add-on...** and select the zip.
+4. Open Facebook Marketplace.
+
+Firefox removes temporary add-ons when it quits, so you'll need to repeat step 3 after each restart. A permanent install needs a build signed by Mozilla.
+
+Firefox 128 needs macOS 10.15 (Catalina) or newer. Older Macs stuck on Firefox ESR 115 can't run the extension.
+
 Note: the seller-age and listing-age filters open listing pages in the background with your Facebook login (spaced a couple of seconds apart and cached).
 
 =================
